@@ -1,0 +1,17 @@
+{
+  "name": "first-express",
+  "version": "1.0.0",
+  "description": "first application with express",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dega",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.2",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
