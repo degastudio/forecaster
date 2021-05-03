@@ -11,7 +11,6 @@ const getOpenWeatherConfigs = async (lang, units = 'metric') => {
 module.exports = {
     forecast: async function(place) {
         const url = await getOpenWeatherConfigs('it');
-        console.log(url);
         return await req.get(url + place, (err, res) => {
             return !err ? JSON.parse(res.body) : {};
         });
