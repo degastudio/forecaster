@@ -52,9 +52,9 @@ app.get('/data/:place', async (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.status(404).render('404', { title: '404!', usr: 'Vins' });
+  res.status(404).render('404', { title: '404!' });
 });
 
 const d = new Date();
 const time = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
-app.listen(3080, () => console.log(time,'SERVER IS RUNNING ON PORT: 3080'));
+app.listen(process.env.PORT || 3080, () => console.log(time,'SERVER IS RUNNING ON PORT: 3080'));

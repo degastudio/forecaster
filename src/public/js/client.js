@@ -14,7 +14,7 @@ input.addEventListener('keyup', (e) => {
 button.addEventListener('click', (e) => {
     secondary.innerHTML = 'Loading..';
     
-    fetch('http://localhost:3080/forecast/' + input.value)
+    fetch(`/forecast/${input.value}`)
         .then((res) => {
             if(res.status > 299) {
                 secondary.innerHTML = '<h3>Place Not Found! Try Another One.</h3>';
