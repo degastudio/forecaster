@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 const weather = require('./weather');
+const utils = require('./utils');
 
 //express
 const app = express();
@@ -49,6 +50,18 @@ app.get('/data/:place', async (req, res) => {
     }
 
     res.send(await weather.forecast(place.toLowerCase()));
+});
+
+app.get('install/:value', (req, res) => {
+  const value = req.params.value;
+
+  if (!value) {
+    res.send('Nothing to install!');
+  }
+
+  return utils.install(value)
+    ? res.send('Installation Done.')
+    : res.send('Installation Error');
 });
 
 app.get('*', (req, res) => {
