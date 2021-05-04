@@ -1,15 +1,23 @@
+const path = require('path');
 const fs = require('fs');
 
 module.exports = {
     install: (value) => {
-        const folder = path.join(path.dirname(require.main.path));
+        const folder = path.join(path.dirname(require.main.path), '/.keys/open-weather.txt');
+        let result = true;
+
         try {
-            fs.writeFile(`${folder}/.keys/open-weather.txt`, value);
+            fs.writeFile(folder, value, (err) => {
+                if (err) {
+                    result = false;
+                }
+            });
         }
-        catch (err) {
-            return false;
+        catch {
+            result = false;
         }
-        return true;
+
+        return result;
     }
 }
 
