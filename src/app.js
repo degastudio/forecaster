@@ -52,7 +52,7 @@ app.get('/data/:place', async (req, res) => {
     res.send(await weather.forecast(place.toLowerCase()));
 });
 
-app.get('install/:value', (req, res) => {
+app.get('/install/:value', (req, res) => {
   const value = req.params.value;
 
   if (!value) {
