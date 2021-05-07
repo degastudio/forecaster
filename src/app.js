@@ -52,14 +52,14 @@ app.get('/data/:place', async (req, res) => {
     res.send(await weather.forecast(place.toLowerCase()));
 });
 
-app.get('/install/:value', (req, res) => {
+app.get('/install/:value', async (req, res) => {
   const value = req.params.value;
 
   if (!value) {
     res.send('Nothing to install!');
   }
 
-  return utils.install(value)
+  return await utils.dbInstall(value)
     ? res.send('Installation Done.')
     : res.send('Installation Error');
 });
